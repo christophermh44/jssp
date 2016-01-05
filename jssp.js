@@ -4,6 +4,7 @@
   $.fn.jssp=function(o){
     var params = o.settings || {};
     var $bypass = o.bypass || null;
+    var context = o.context || (new (AudioContext || webkitAudioContext)());
 
     return this.each(function(){
       var audio = this;
@@ -117,7 +118,6 @@
       		}
       	};
 
-      	var context = new (AudioContext || webkitAudioContext)();
       	var source = context.createMediaElementSource(audio);
       	var output = context.createGain();
 
@@ -132,7 +132,9 @@
       	}
       	input.connect(output);
       	output.connect(context.destination);
-      	source.connect(chainInput);
+        if (chainInput) {
+          source.connect(chainInput);
+        }
       };
 
       if (typeof params == 'string') {
