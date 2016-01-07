@@ -1,0 +1,30 @@
+{
+  "name": "jssp",
+  "main": "jssp.js",
+  "version": "1.0.0",
+  "homepage": "https://jssp.c-mh.fr/",
+  "description": "jQuery plugin for client sound processing",
+  "keywords": [
+    "jssp",
+    "jquery",
+    "sound",
+    "audio",
+    "processing",
+    "client",
+    "plugin"
+  ],
+  "authors": [
+    "Christopher Machicoane-Hurtaud"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
