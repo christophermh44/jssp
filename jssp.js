@@ -88,6 +88,16 @@
       			input.connect(fx);
       			return fx;
       		},
+          parameq: function(ctx, input, settings) {
+            var bands = [];
+            var joiner = ctx.createGain();
+            for (var b in settings.bands) {
+              var band = settings.bands[b];
+              var monoband = FXs.filter(ctx, input, band);
+              monoband.connect(joiner);
+            }
+            return joiner;
+          },
       		monoband: function(ctx, input, settings) {
       			var filter = FXs.filter(ctx, input, {
       				type: 'bandpass',
